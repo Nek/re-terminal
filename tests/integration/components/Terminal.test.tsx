@@ -2,15 +2,15 @@ import React from 'react';
 import { render, screen, fireEvent, getByTestId } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
-import { ReactTerminal, TerminalContextProvider } from "../../../src";
+import { ReTerminal, TerminalContextProvider } from "../../../src";
 import '@testing-library/jest-dom'
 import * as reactDeviceDetect from 'react-device-detect';
 
-describe('ReactTerminal', () => {
-  test('renders ReactTerminal component', () => {
+describe('ReTerminal', () => {
+  test('renders ReTerminal component', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal/>
+          <ReTerminal/>
       </TerminalContextProvider>
     );
   });
@@ -18,7 +18,7 @@ describe('ReactTerminal', () => {
   test('selects terminal component when clicked inside it', async () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal/>
+          <ReTerminal/>
       </TerminalContextProvider>
     );
     
@@ -32,7 +32,7 @@ describe('ReactTerminal', () => {
     render(
       <div data-testid="outer-shell">
         <TerminalContextProvider>
-            <ReactTerminal/>
+            <ReTerminal/>
         </TerminalContextProvider>
       </div>
     );
@@ -46,7 +46,7 @@ describe('ReactTerminal', () => {
   test('doesnt register input when enableInput is false', async () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal enableInput={false}/>
+          <ReTerminal enableInput={false}/>
       </TerminalContextProvider>
     );
     
@@ -59,7 +59,7 @@ describe('ReactTerminal', () => {
   test('write some text on terminal component', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal/>
+          <ReTerminal/>
       </TerminalContextProvider>
     );
     
@@ -71,7 +71,7 @@ describe('ReactTerminal', () => {
   test('execute an invalid command on terminal component returns default text', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal/>
+          <ReTerminal/>
       </TerminalContextProvider>
     );
     
@@ -84,7 +84,7 @@ describe('ReactTerminal', () => {
   test('execute a valid command on terminal component', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: 'jackharper' }}/>
+          <ReTerminal commands={{ whoami: 'jackharper' }}/>
       </TerminalContextProvider>
     );
     
@@ -97,7 +97,7 @@ describe('ReactTerminal', () => {
   test('command can call a function', async () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: () => {
+          <ReTerminal commands={{ whoami: () => {
             return 'jackharper';
           } }}/>
       </TerminalContextProvider>
@@ -114,7 +114,7 @@ describe('ReactTerminal', () => {
   test('backspace deletes a character', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: 'jackharper' }}/>
+          <ReTerminal commands={{ whoami: 'jackharper' }}/>
       </TerminalContextProvider>
     );
     
@@ -130,7 +130,7 @@ describe('ReactTerminal', () => {
   test('up arrow fetch previous command', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: 'jackharper' }}/>
+          <ReTerminal commands={{ whoami: 'jackharper' }}/>
       </TerminalContextProvider>
     );
     
@@ -144,7 +144,7 @@ describe('ReactTerminal', () => {
   test('down arrow fetch next command', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: 'jackharper' }}/>
+          <ReTerminal commands={{ whoami: 'jackharper' }}/>
       </TerminalContextProvider>
     );
     
@@ -167,7 +167,7 @@ describe('ReactTerminal', () => {
   test('arrow left/right moves the cursor', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: 'jackharper' }}/>
+          <ReTerminal commands={{ whoami: 'jackharper' }}/>
       </TerminalContextProvider>
     );
     
@@ -184,7 +184,7 @@ describe('ReactTerminal', () => {
   test('paste the text from clipboard', async () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{whoami: "jackharper"}}/>
+          <ReTerminal commands={{whoami: "jackharper"}}/>
       </TerminalContextProvider>
     );
 
@@ -207,7 +207,7 @@ describe('ReactTerminal', () => {
   test('empty command does nothing', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: 'jackharper' }}/>
+          <ReTerminal commands={{ whoami: 'jackharper' }}/>
       </TerminalContextProvider>
     );
     
@@ -221,7 +221,7 @@ describe('ReactTerminal', () => {
   test('clear command clears the console', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal/>
+          <ReTerminal/>
       </TerminalContextProvider>
     );
 
@@ -237,7 +237,7 @@ describe('ReactTerminal', () => {
   test('doesnt do anything for unmappable key', () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal/>
+          <ReTerminal/>
       </TerminalContextProvider>
     );
 
@@ -249,7 +249,7 @@ describe('ReactTerminal', () => {
   test('custom errorMessage is string', async () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal errorMessage="Command not found"/>
+          <ReTerminal errorMessage="Command not found"/>
       </TerminalContextProvider>
     );
 
@@ -262,7 +262,7 @@ describe('ReactTerminal', () => {
   test('custom errorMessage is function', async () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal errorMessage={() => {
+          <ReTerminal errorMessage={() => {
             return "Function but command not found";
           }}/>
       </TerminalContextProvider>
@@ -279,7 +279,7 @@ describe('ReactTerminal', () => {
   test('defaultHandler is used if provided when no commands match', async () => {
     render(
       <TerminalContextProvider>
-          <ReactTerminal commands={{whoami: "jackharper"}} defaultHandler={() => {
+          <ReTerminal commands={{whoami: "jackharper"}} defaultHandler={() => {
             return "default command handler triggered";
           }}/>
       </TerminalContextProvider>
@@ -302,7 +302,7 @@ test("mobile editor is not focused when on desktop", async () => {
 
   render(
         <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: "jackharper" }}
+          <ReTerminal commands={{ whoami: "jackharper" }}
                          defaultHandler={() => {
                            return "default command handler triggered";
                          }}/>
@@ -318,7 +318,7 @@ test("mobile editor is focused when selected", async () => {
 
   render(
         <TerminalContextProvider>
-          <ReactTerminal commands={{ whoami: "jackharper" }}
+          <ReTerminal commands={{ whoami: "jackharper" }}
                          defaultHandler={() => {
                            return "default command handler triggered";
                          }}/>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./App.css";
-import { TerminalContextProvider } from "react-terminal";
-import { ReactTerminal } from "react-terminal";
+import { TerminalContextProvider } from "re-terminal";
+import { ReTerminal } from "re-terminal";
 
 const App = () => {
   const [theme, setTheme] = React.useState("light");
@@ -73,7 +73,7 @@ const App = () => {
   return (
     <div className="App">
       <TerminalContextProvider>
-        <ReactTerminal
+        <ReTerminal
           prompt={prompt}
           theme={theme}
           showControlBar={controlBar}

@@ -1,14 +1,14 @@
 <h1 align="center">
-  <img src="https://react-terminal.sirv.com/static/terminal-logo-text.png" data-canonical-src="https://react-terminal.sirv.com/static/terminal-logo-text.png" width="145" height="50" />
+  <img src="https://re-terminal.sirv.com/static/terminal-logo-text.png" data-canonical-src="https://re-terminal.sirv.com/static/terminal-logo-text.png" width="145" height="50" />
 </h1>
 
 <p align="center">🚀 React component that renders a Terminal 🖥</p>
 
 <p align="center">
-  <a href="https://github.com/bony2023/react-terminal/actions?query=Build+and+Test"><img src="https://github.com/bony2023/react-terminal/workflows/Build%20and%20Test/badge.svg" data-canonical-src="https://github.com/bony2023/react-terminal/workflows/Build%20and%20Test/badge.svg"/></a>
-  <a href="https://codecov.io/gh/bony2023/react-terminal"><img src="https://codecov.io/gh/bony2023/react-terminal/branch/main/graph/badge.svg?token=xt1kdpvlam" data-canonical-src="https://codecov.io/gh/bony2023/react-terminal/branch/main/graph/badge.svg?token=xt1kdpvlam"/></a>
-  <a href="https://www.npmjs.com/package/react-terminal"><img src="https://img.shields.io/npm/v/react-terminal/latest" data-canonical-src="https://img.shields.io/npm/v/react-terminal/latest"/></a>
-  <img src="https://img.shields.io/npm/l/react-terminal" data-canonical-src="https://img.shields.io/npm/l/react-terminal"/>
+  <a href="https://github.com/bony2023/re-terminal/actions?query=Build+and+Test"><img src="https://github.com/bony2023/re-terminal/workflows/Build%20and%20Test/badge.svg" data-canonical-src="https://github.com/bony2023/re-terminal/workflows/Build%20and%20Test/badge.svg"/></a>
+  <a href="https://codecov.io/gh/bony2023/re-terminal"><img src="https://codecov.io/gh/bony2023/re-terminal/branch/main/graph/badge.svg?token=xt1kdpvlam" data-canonical-src="https://codecov.io/gh/bony2023/re-terminal/branch/main/graph/badge.svg?token=xt1kdpvlam"/></a>
+  <a href="https://www.npmjs.com/package/re-terminal"><img src="https://img.shields.io/npm/v/re-terminal/latest" data-canonical-src="https://img.shields.io/npm/v/re-terminal/latest"/></a>
+  <img src="https://img.shields.io/npm/l/re-terminal" data-canonical-src="https://img.shields.io/npm/l/re-terminal"/>
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
   <a href="#report-a-bug">Report a bug</a>
 </p>
 
-![Terminal png](https://react-terminal.sirv.com/static/terminal-dracula.png)
+![Terminal png](https://re-terminal.sirv.com/static/terminal-dracula.png)
 
 ## Features
 - Mobile support. 📱
@@ -32,16 +32,16 @@
 ## Installation
 Install package with NPM or YARN and add it to your development dependencies:
 ```
-npm install react-terminal
+npm install re-terminal
 ```
 OR
 ```
-yarn add react-terminal
+yarn add re-terminal
 ```
 
 ## Usage
 ```
-import { ReactTerminal } from "react-terminal";
+import { ReTerminal } from "re-terminal";
 
 function App(props) {
   // Define commands here
@@ -51,7 +51,7 @@ function App(props) {
   };
 
   return (
-    <ReactTerminal
+    <ReTerminal
       commands={commands}
     />
   );
@@ -60,7 +60,7 @@ function App(props) {
 
 Also make sure to wrap the main mountpoint around the `TerminalContextProvider`. This retains the state even when the component is unmounted and then mounted back:
 ```
-import { TerminalContextProvider } from "react-terminal";
+import { TerminalContextProvider } from "re-terminal";
 
 ReactDOM.render(
   <TerminalContextProvider>
@@ -74,7 +74,7 @@ ReactDOM.render(
 The component comes with few in-built themes: `light`, `dark`, `material-light`, `material-dark`, `material-ocean`, `matrix` and `dracula`. You can also create custom themes by passing `themes` parameter in props, as follows:
 
 ```
-<ReactTerminal
+<ReTerminal
   commands={commands}
   themes={{
     my-custom-theme: {
@@ -108,4 +108,4 @@ The component comes with few in-built themes: `light`, `dark`, `material-light`,
 | clear | clears the console |
 
 ## Report a bug
-If you found a bug in this library, please file an GitHub issue [here](https://github.com/bony2023/react-terminal/issues).
+If you found a bug in this library, please file an GitHub issue [here](https://github.com/bony2023/re-terminal/issues).
