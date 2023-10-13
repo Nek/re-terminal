@@ -3,13 +3,13 @@
   height: 100%;
   padding: 10px 15px;
   overflow-wrap: break-word;
-  overflow-y: scroll;
+  overflow-y: hidden;
   outline: none;
   font-family: 'Noto Sans Mono', monospace;
   font-size: 18px;
   line-height: 22px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 
   .mobileInput {
     position: absolute;
@@ -105,6 +105,6 @@
 }
 
 .curvedTop {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
