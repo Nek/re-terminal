@@ -102,6 +102,7 @@
     "collectCoverage": true
   },
   "dependencies": {
+    "@nekocode/use-shared-state": "^1.7.0",
     "prop-types": "^15.7.2",
     "react-device-detect": "2.1.2"
   }

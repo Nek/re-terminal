@@ -1,7 +1,11 @@
 import * as React from "react";
 import * as Terminal from "./components/Terminal";
 import * as ContextProvider from "./contexts";
-import { TerminalContextProvider as _TerminalContextProvider } from "./contexts/TerminalContext";
+import { useEditorCommands as _uEC } from "./hooks/editor";
+
+export const useEditorCommands = _uEC;
+
+export { TerminalContextProvider } from "./contexts/TerminalContext";
 
 export function ReactTerminal(props: any): any {
   return (
@@ -10,10 +14,3 @@ export function ReactTerminal(props: any): any {
     </ContextProvider.default>
   );
 }
-
-export const TerminalContextProvider = _TerminalContextProvider;
-
-export default {
-  ReactTerminal,
-  TerminalContextProvider
-};

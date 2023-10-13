@@ -54,7 +54,7 @@ export const TerminalContextProvider = (props: any) => {
         setBufferedContent,
         appendCommandToHistory,
         getPreviousCommand,
-        getNextCommand
+        getNextCommand,
       }}
     >
       {children}
