@@ -1,9 +1,7 @@
 import * as React from "react";
 import * as Terminal from "./components/Terminal";
 import * as ContextProvider from "./contexts";
-import { useEditorCommands as _uEC } from "./hooks/editor";
-
-export const useEditorCommands = _uEC;
+export { useEditorCommands } from "./hooks/editor";
 
 export { TerminalContextProvider } from "./contexts/TerminalContext";
 
