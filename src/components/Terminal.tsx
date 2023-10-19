@@ -1,5 +1,3 @@
-import * as React from "react";
-import PropTypes from "prop-types";
 import { isMobile } from "react-device-detect";
 
 import { StyleContext } from "../contexts/StyleContext";
@@ -8,12 +6,30 @@ import { useClickOutsideEvent } from "../hooks/terminal";
 
 import Controls from "./Controls";
 import Editor from "./Editor";
+import React, { useRef, useState, useContext } from "react";
+import { Command, Message } from "../types";
 
-export default function Terminal(props: any) {
-  const wrapperRef = React.useRef(null);
-  const [consoleFocused, setConsoleFocused] = React.useState(!isMobile);
-  const style = React.useContext(StyleContext);
-  const themeStyles = React.useContext(ThemeContext);
+type TerminalProps = {
+  enableInput: boolean,
+  caret: boolean,
+  theme: string,
+  showControlBar: boolean,
+  showControlButtons: boolean,
+  controlButtonLabels: string[],
+  prompt: string,
+  commands: {
+    [name in string]: Command
+  },
+  welcomeMessage:  Message | (() => Message),
+  errorMessage: Message | (() => Message),
+  defaultHandler: () => Message,
+}
+
+export default function Terminal(props: TerminalProps) {
+  const wrapperRef = useRef(null);
+  const [consoleFocused, setConsoleFocused] = useState(!isMobile);
+  const style = useContext(StyleContext);
+  const themeStyles = useContext(ThemeContext);
 
   useClickOutsideEvent(wrapperRef, consoleFocused, setConsoleFocused);
 
@@ -64,25 +80,7 @@ export default function Terminal(props: any) {
   );
 }
 
-Terminal.propTypes = {
-  enableInput:PropTypes.bool,
-  caret: PropTypes.bool,
-  theme: PropTypes.string,
-  showControlBar: PropTypes.bool,
-  showControlButtons: PropTypes.bool,
-  controlButtonLabels: PropTypes.arrayOf(PropTypes.string),
-  prompt: PropTypes.string,
-  commands: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.node
-  ])),
-  welcomeMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
-  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
-  defaultHandler: PropTypes.func,
-};
-
-Terminal.defaultProps = {
+const defaultProps: TerminalProps = {
   enableInput: true,
   caret: true,
   theme: "light",

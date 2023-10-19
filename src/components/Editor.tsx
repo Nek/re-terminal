@@ -4,6 +4,7 @@ import { StyleContext } from "../contexts/StyleContext";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { TerminalContext } from "../contexts/TerminalContext";
 import { useCurrentLine, useScrollToBottom } from "../hooks/editor";
+import { Command, Message } from "../types";
 
 type EditorProps = {
   enableInput: boolean;
@@ -11,12 +12,12 @@ type EditorProps = {
   consoleFocused: boolean;
   prompt: string;
   commands: {
-    [name in string] : ((s?: string) => string | void) |  ( (s?: string) => Promise<string | void>);
-  };
-  welcomeMessage: string;
-  errorMessage: string;
+    [name in string]: Command
+  },
+  welcomeMessage:  Message | (() => Message),
+  errorMessage: Message | (() => Message),
   showControlBar: boolean;
-  defaultHandler: () => void;
+  defaultHandler: () => Message,
 };
 
 export default function Editor(props: EditorProps) {
