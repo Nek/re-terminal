@@ -9,7 +9,7 @@ import Editor from "./Editor";
 import React, { useRef, useState, useContext } from "react";
 import { Command, Message } from "../types";
 
-type TerminalProps = {
+export type TerminalProps = {
   enableInput: boolean,
   caret: boolean,
   theme: string,
@@ -24,6 +24,7 @@ type TerminalProps = {
   errorMessage: Message | (() => Message),
   defaultHandler: () => Message,
 }
+
 
 export default function Terminal(props: TerminalProps) {
   const wrapperRef = useRef(null);
@@ -79,17 +80,3 @@ export default function Terminal(props: TerminalProps) {
     </div>
   );
 }
-
-const defaultProps: TerminalProps = {
-  enableInput: true,
-  caret: true,
-  theme: "light",
-  showControlBar: true,
-  showControlButtons: true,
-  controlButtonLabels: ["close", "minimize", "maximize"],
-  prompt: ">>>",
-  commands: {},
-  welcomeMessage: "",
-  errorMessage: "not found!",
-  defaultHandler: null,
-};
