@@ -26,7 +26,7 @@
     "react",
     "terminal"
   ],
-  "author": "Bony Roopchandani",
+  "author": "Nikita Dudnik (adopted from Bony Roopchandani)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nek/re-terminal/issues"
